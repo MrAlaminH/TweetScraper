@@ -15,7 +15,7 @@ const randomDelay = (min: number, max: number) => {
 // Modify scrapeTweets to avoid duplicates
 async function scrapeTweets(cookie: string, hashtag: string, countPerInstance: number, instanceNum: number, seenUrls: Set<string>) {
   const tweets: Tweet[] = [];
-  const browser = await puppeteer.launch({ headless: 'shell' });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.setCookie({ name: 'auth_token', value: cookie, domain: '.twitter.com' });
 
